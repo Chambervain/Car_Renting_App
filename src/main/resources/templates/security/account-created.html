@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Account created</title>
+    <link rel="stylesheet" th:href="@{/CSS/security-layout.css}" type="text/css">
+
+    <style>
+        .containerAccountCreated {
+            margin: 0 auto;
+            position: relative;
+            right: 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div class="wrapperAccountCreated">
+    <br><br>
+    <div class="containerAccountCreated">
+        <p style="text-align: center">New account has been created !</p>
+        <form action="/login" method="GET">
+            <input style="position: relative; right: 13%; width: 210px" type="submit" value="Confirm and go back"/>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

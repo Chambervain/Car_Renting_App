@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Logout</title>
+    <link rel="stylesheet" th:href="@{/CSS/security-layout.css}" type="text/css">
+
+    <style>
+        .containerLogout {
+            margin: 0 auto;
+            position: relative;
+            right: 10%;
+        }
+    </style>
+</head>
+
+<body>
+<form method="post" th:action="@{/logout}">
+
+    <div class="wrapperLogout">
+        <br><br>
+        <div class="containerLogout">
+            <p style="text-align: center">Are you sure you want to log out ?</p>
+            <input style="position: relative; right: 13%; width: 200px" type="submit" value="Logout"/>
+        </div>
+    </div>
+
+</form>
+</body>
+</html>
