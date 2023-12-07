@@ -117,7 +117,13 @@
                 <th style="width: 100px">Reserve</th>
             </tr>
             <tr th:each="car : ${cars}">
-                <td th:text="${car.carName}"></td>
+<!--                <td th:text="${car.carName}"></td>-->
+                <td>
+                    <a th:href="@{/user/detail/{carId}(carId=${car.carId})}">
+                        <span th:text="${car.carName}"></span>
+                    </a>
+                </td>
+
                 <td th:text="${car.owner}"></td>
                 <td th:text="${car.releaseYear}"></td>
                 <td th:text="${car.edition}"></td>

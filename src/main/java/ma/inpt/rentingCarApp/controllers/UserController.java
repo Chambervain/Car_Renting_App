@@ -18,7 +18,7 @@ import java.util.*;
 @RequestMapping("/user")
 public class UserController {
 
-    // class attributes :
+    // class attributes:
     final UserService usService;
     final CarService carService;
     final CurrentUserFinder currentUserFinder;
@@ -26,7 +26,7 @@ public class UserController {
     final DateTracker dateTracker;
     final ListInStringConverter listConverter;
 
-    // class constructor :
+    // class constructor:
     public UserController(UserService usService, CarService carService, CurrentUserFinder currentUserFinder, FineCalculator fineCalculator, DateTracker dateTracker, ListInStringConverter listConverter) {
         this.usService = usService;
         this.carService = carService;
@@ -36,7 +36,7 @@ public class UserController {
         this.listConverter = listConverter;
     }
 
-    // class methods :
+    // class methods:
     @GetMapping
     public String userHome(Model model) {
         User currentUser = currentUserFinder.getCurrentUser();
@@ -92,6 +92,16 @@ public class UserController {
 
         return "user/user-pay-fine.html";
     }
+
+
+    @GetMapping(value = "/detail/{carId}")
+    public String carDetail(Model model, @PathVariable(value = "carId") Long carId){
+        Car car = carService.findById(carId);
+        model.addAttribute("info", car);
+
+        return "user/car_detail.html";
+    }
+
 
     @PostMapping(value = "/yourcars/dopayment")
     public String doPayment(@RequestParam int weeksToExtend,
