@@ -13,7 +13,7 @@
 </div>
 
 <div class="container">
-    <h3>Car catalog</h3>
+    <h3>Car Catalog</h3>
 
     <div class="row">
         <form method="GET" th:action="@{/employee/cars/showcars}">
@@ -53,7 +53,7 @@
             <th>Car name</th>
             <th>Release Year</th>
             <th>Edition</th>
-            <th>Return Date</th>
+<!--            <th>Return Date</th>-->
             <th>Reserved From</th>
             <th>Reserved Until</th>
             <th>Action</th>
@@ -62,7 +62,7 @@
             <td th:text="${car.carName}"></td>
             <td th:text="${car.releaseYear}"></td>
             <td th:text="${car.edition}"></td>
-            <td th:text="${car.returnDate}"></td>
+<!--            <td th:text="${car.returnDate}"></td>-->
             <td th:text="${car.startReservationDate}"></td>
             <td th:text="${car.endReservationDate}"></td>
             <td style="width: 240px;">
@@ -75,7 +75,6 @@
                     <input name="deleteCarId" th:value="${car.CarId}" type="hidden">
                 </form>
             </td>
-
         </tr>
 
     </table>

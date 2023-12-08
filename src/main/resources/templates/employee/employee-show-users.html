@@ -6,7 +6,6 @@
     <link rel="stylesheet" th:href="@{/CSS/account-layout.css}" type="text/css">
 </head>
 <body>
-<body>
 
 <div class="sidebar-container">
     <ul th:replace="page-layout :: employeeNavBar">
@@ -16,7 +15,7 @@
 <div class="container">
 
 
-    <h3>Users</h3>
+    <h3>User Info</h3>
 
     <div class="row">
 
@@ -48,19 +47,19 @@
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Email</th>
+            <th>City</th>
             <th>Phone Number</th>
-            <th>Fine</th>
+<!--            <th>Fine</th>-->
             <th style="width: 150px">Action</th>
         </tr>
 
         <tr th:each="user : ${usersWithFines}">
             <td th:text="${user.key.firstName}"></td>
             <td th:text="${user.key.lastName}"></td>
-            <td th:text="${user.key.email}"></td>
+            <td th:text="${user.key.city}"></td>
             <td th:text="${user.key.phoneNumber}"></td>
-            <td style="color:red" th:if="${user.value > 0}" th:text="${'$ ' + user.value}"></td>
-            <td th:if="${user.value == 0}" th:text="${'$ ' + user.value}"></td>
+<!--            <td style="color:red" th:if="${user.value > 0}" th:text="${'$ ' + user.value}"></td>-->
+<!--            <td th:if="${user.value == 0}" th:text="${'$ ' + user.value}"></td>-->
             <td>
                 <form method="GET" th:action="@{/employee/users/showuserinfo}">
                     <input class="table" type="submit" value="Show user info">
