@@ -11,17 +11,17 @@ import ma.inpt.rentingCarApp.services.UserService;
 @Controller
 public class SecurityController {
 
-	// class attributes :
-	final BCryptPasswordEncoder pwEncoder;
+	// class attributes:
+	final BCryptPasswordEncoder pwdEncoder;
 	final UserService accService;
 
-	// class constructor :
-	public SecurityController(BCryptPasswordEncoder pwEncoder, UserService accService) {
-		this.pwEncoder = pwEncoder;
+	// class constructor:
+	public SecurityController(BCryptPasswordEncoder pwdEncoder, UserService accService) {
+		this.pwdEncoder = pwdEncoder;
 		this.accService = accService;
 	}
 
-	// class methods :
+	// class methods:
 	@GetMapping(value="/login")
 	public String login() {
 		return "security/login.html";
@@ -40,7 +40,7 @@ public class SecurityController {
 	
 	@PostMapping(value="/register/save")
 	public String saveNewAccount(User account) {
-		account.setPassword(pwEncoder.encode(account.getPassword()));
+		account.setPassword(pwdEncoder.encode(account.getPassword()));
 		accService.save(account);
 		return "redirect:/register/accountcreated";
 	}

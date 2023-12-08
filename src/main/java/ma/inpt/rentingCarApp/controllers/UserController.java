@@ -12,6 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 
 @Controller
@@ -19,7 +23,7 @@ import java.util.*;
 public class UserController {
 
     // class attributes:
-    final UserService usService;
+    final UserService userService;
     final CarService carService;
     final CurrentUserFinder currentUserFinder;
     final FineCalculator fineCalculator;
@@ -27,8 +31,8 @@ public class UserController {
     final ListInStringConverter listConverter;
 
     // class constructor:
-    public UserController(UserService usService, CarService carService, CurrentUserFinder currentUserFinder, FineCalculator fineCalculator, DateTracker dateTracker, ListInStringConverter listConverter) {
-        this.usService = usService;
+    public UserController(UserService userService, CarService carService, CurrentUserFinder currentUserFinder, FineCalculator fineCalculator, DateTracker dateTracker, ListInStringConverter listConverter) {
+        this.userService = userService;
         this.carService = carService;
         this.currentUserFinder = currentUserFinder;
         this.fineCalculator = fineCalculator;
@@ -100,6 +104,39 @@ public class UserController {
         model.addAttribute("info", car);
 
         return "user/car_detail.html";
+    }
+
+
+    @PostMapping(value = "/check/{checkId}")
+    public String checkCar(
+            @PathVariable(value = "checkId") Long checkId,
+            @RequestParam(value = "checkDate")
+            @DateTimeFormat(pattern = "yyyy-MM-dd")
+            Date checkDate
+    ){
+
+        Car car = carService.findById(checkId);
+        LocalDate endDate = checkDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate startDate;
+
+        if (car.getReturnDate() == null) {
+            startDate = LocalDate.now();
+        }
+        else {
+            if (car.getReturnDate().compareTo(LocalDate.now()) < 0) {
+                startDate = LocalDate.now();
+            } else {
+                startDate = car.getReturnDate().plusDays(1);
+            }
+        }
+
+        car.setStartReservationDate(startDate);
+        car.setEndReservationDate(endDate);
+        car.setReservedByUser(userService.findById(currentUserFinder.getCurrentUserId()));
+        carService.save(car);
+        userService.save(currentUserFinder.getCurrentUser());
+
+        return "redirect:/user/yourreservations";
     }
 
 

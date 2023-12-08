@@ -7,6 +7,11 @@
 </head>
 <body>
 
+<div class="sidebar-container">
+    <ul th:replace="page-layout :: userNavBar">
+    </ul>
+</div>
+
 <div class="container">
     
     <h2>Car Information Details</h2>
@@ -57,15 +62,19 @@
         </div>
 
 
+    <form method="POST" th:action="@{/user/check/{checkId}(checkId=${info.carId})}">
+
+
     <div class="row">
         <div class="col-50">
             <label>Return date:</label>
         </div>
         <div class="col-75">
-            <input required="required" id="reserveDate" type="date">
+            <input name="checkDate" required="required" id="reserveDate" type="date">
         </div>
     </div>
 
+        
     <div class="row">
         <div class="col-75">
             <button onclick="calculateTotal()">Total Price</button>
@@ -79,11 +88,13 @@
     </div>
 
     <title>TotalPrice</title>
+
+
     <script>
         function calculateTotal() {
-            // ?? price/day
+
             var pricePerDay = parseFloat(document.getElementById('pricePerDay').innerText);
-            var todayDate = new Date(); // ?????
+            var todayDate = new Date();
             var reserveDate = new Date(document.getElementById('reserveDate').value);
             var timeDiff = Math.abs(reserveDate.getTime() - todayDate.getTime());
             var rentalDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
@@ -134,7 +145,7 @@
             <div class="col-75">
                 <input required="required" type="number"/>
             </div>
-        </div>
+        </div><br>
 
 
         <div class="row">
@@ -142,10 +153,10 @@
             </div>
             <div class="col-75">
                 <input type="submit" value="PAY FOR IT">
-                <input name="_csrf" th:value="${_csrf.token}" type="hidden">
-                <input name="_method" th:value="PUT" type="hidden">
             </div>
         </div>
+
+    </form>
 
 </div>
 </body>

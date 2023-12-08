@@ -6,7 +6,12 @@
     <link rel="stylesheet" th:href="@{/CSS/account-layout.css}" type="text/css">
 </head>
 <body>
-<ul th:replace="page-layout :: userNavBar"></ul>
+
+<div class="sidebar-container">
+    <ul th:replace="page-layout :: userNavBar">
+    </ul>
+</div>
+
 <div class="container">
 
     <h3>Your Reservations</h3>

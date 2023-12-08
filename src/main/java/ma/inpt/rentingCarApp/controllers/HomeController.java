@@ -18,12 +18,12 @@ public class HomeController {
         Collection<? extends GrantedAuthority> role = new ArrayList<>();
         role = principal.getAuthorities();
 
-        if (role.toString().equals("[ROLE_ADMIN]")) {
-            return "redirect:/admin";
-        } else if (role.toString().equals("[ROLE_EMPLOYEE]")) {
+        if (role.toString().equals("[ROLE_EMPLOYEE]")) {
             return "redirect:/employee";
-        } else {
+        }
+        else {
             return "redirect:/user";
         }
     }
+
 }

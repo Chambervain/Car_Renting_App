@@ -6,9 +6,14 @@
     <link rel="stylesheet" th:href="@{/CSS/account-layout.css}" type="text/css">
 </head>
 <body>
-<ul th:replace="page-layout :: userNavBar"></ul>
+
+<div class="sidebar-container">
+    <ul th:replace="page-layout :: userNavBar">
+    </ul>
+</div>
 
 <div class="container">
+
     <h3>Your Cars</h3>
 
     <p th:if="${cars.size() == 0}">You don't have any cars in use.</p>
