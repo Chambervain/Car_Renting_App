@@ -7,7 +7,11 @@
     <link rel="stylesheet" th:href="@{/CSS/account-layout.css}" type="text/css">
 </head>
 <body>
-<ul th:replace="page-layout :: employeeNavBar"></ul>
+
+<div class="sidebar-container">
+    <ul th:replace="page-layout :: employeeNavBar">
+    </ul>
+</div>
 
 <div class="container">
     <h3>Add new car to catalog</h3>
