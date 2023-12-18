@@ -9,22 +9,23 @@ import ma.inpt.rentingCarApp.services.CarService;
 import ma.inpt.rentingCarApp.services.NotificationService;
 import ma.inpt.rentingCarApp.services.UserService;
 
+
 @Component
 public class MidnightApplicationRefresh {
 
-	// class attributes :
+	// class attributes:
     final CarService carService;
     final UserService userService;
     final NotificationService notificationService;
 
-    // class constructor :
+    // class constructor:
 	public MidnightApplicationRefresh(CarService carService, UserService userService, NotificationService notificationService) {
 		this.carService = carService;
 		this.userService = userService;
 		this.notificationService = notificationService;
 	}
 
-	// class methods :
+	// class methods:
     public void midnightApplicationRefresher() { //Removes overdue reservations and notifications.
 
         for (Car car : carService.findAll()) {

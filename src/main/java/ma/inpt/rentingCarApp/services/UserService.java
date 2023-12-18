@@ -7,6 +7,7 @@ import ma.inpt.rentingCarApp.DAO.UserRepository;
 import ma.inpt.rentingCarApp.entities.User;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class UserService {
 

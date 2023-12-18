@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import ma.inpt.rentingCarApp.entities.User;
 import ma.inpt.rentingCarApp.services.UserService;
 
+
 @Service
 public class CurrentUserFinder {
 

@@ -3,11 +3,11 @@ package ma.inpt.rentingCarApp.utils;
 import ma.inpt.rentingCarApp.entities.Car;
 import ma.inpt.rentingCarApp.entities.User;
 import org.springframework.stereotype.Component;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.LinkedHashMap;
 import java.util.List;
+
 
 @Component
 public class FineCalculator {

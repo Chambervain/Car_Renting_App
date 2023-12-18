@@ -1,79 +1,35 @@
-# Car Renting Application with Spring-Boot
-This is a Spring Boot web application. The main goal was to practice with:
-  - JPA
-  - H2 / My sql
-  - MVC
-
-# Objective : 
-The car rental management system can be used by companies that manage a car rental project, note that this project only runs on a local machine, 
-but can be modified to run on multiple machines simultaneously for more high efficiency and to serve the whole company.
+# Car Renting Application  README
 
 
-# Table of Contents
-* The Scope of the project & Functionalities.
-* Application Work Flow.
-* Something Missing ?
-* About us ?
+This is a Java web application based on Spring Boot and the technical stacks are listed as follows:
+  - Database: MySQL
+  - Building connection between Model classes and tables in DB: Hibernate JPA
+  - Back-end: Spring Boot
+  - Data transmission between webpages and Java controller files: Thymeleaf
+  - Front-end: HTML/CSS/JavaScript
 
 
-# The Scope of the project & Functionalities  
-This application provides an online platform where companiy members can manage their car renting services. 
-Each user has a personal account showing only their personal information.
-There are three types of accounts:
-  - Admin accounts
-  - Employee accounts
-  - User accounts
-Each account type has its own specific functionality. 
+# * Configuration for Project *
+1. Having downloaded the MySQL Driver on the computer, and finish setting up the MySQL account
+2. The local database configured in my web project is named 'car_rental'. So, after building the connection with the MySQL, create a new database called 'car_rental'
+3. Within the file of application.properties: replace these three lines with your own MySQL account information and DB connection data
+   <br />
+   spring.datasource.url=jdbc:mysql://localhost:3306/car_rental<br />
+   spring.datasource.username=root<br />
+   spring.datasource.password=Bowen831<br />
+4. It is able to test the connection with the IDE of IntelliJ Idea, and after it shows successful, click the run button to start running the project
 
 
-# Application Work Flow
-![workflow drawio](https://user-images.githubusercontent.com/35704701/148619182-1ead2309-db9c-499d-ab4b-efd62fa5a67a.png)
+# Default User Account
 
-### user account 
+###  Regular User Account:
+* Username: admin 
 
-* User dashboard : 
-  - 1
-  - 2
-  
-* Manage rented cars :
-  - 1
-  - 2
+* Password: admin
 
- 
-###  Employee account 
 
-* Employee dashboard:
-  - 1
-  - 2
-  
-* Add new car:
-  - Employees can add new cars here. 
+###  Administrator Account 
 
-* Manage cars :
-  - 1
-  
-### admin account
+* Username: root
 
-Admin dashboard: 
-  - 1
-  - 2
-
-Manage users:
-  - 1
-  - 2
-  - 3
-
-Manage employees: 
-  - 1
-  - 2
-  - 3
- 
-Manage admins: 
-  - New admin accounts can be created here. 
-  - A table is shown with all admin accounts.
-
-# Something Missing ?
-If you have ideas for more “How To” recipes that should be on this model, let us know or contribute some!
-
-# About us ?
-This Project is done by a bunch of geeks :stuck_out_tongue_winking_eye:	, don't hesitate to contact us :sunglasses:	 !
+* Password: 1234

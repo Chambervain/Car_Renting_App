@@ -10,6 +10,7 @@ import ma.inpt.rentingCarApp.entities.Car;
 import ma.inpt.rentingCarApp.entities.User;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class CarService {
 

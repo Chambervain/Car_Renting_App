@@ -7,7 +7,6 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-
 import ma.inpt.rentingCarApp.entities.Car;
 import ma.inpt.rentingCarApp.entities.Notification;
 import ma.inpt.rentingCarApp.entities.User;
@@ -26,11 +25,12 @@ import ma.inpt.rentingCarApp.services.CarService;
 import ma.inpt.rentingCarApp.services.NotificationService;
 import ma.inpt.rentingCarApp.services.UserService;
 
+
 @Controller
 @RequestMapping(value = "/employee")
 public class EmployeeController {
 
-    // class attributes :
+    // class attributes:
     final UserService userService;
     final CarService carService;
     final CurrentUserFinder currentUserFinder;
@@ -38,7 +38,7 @@ public class EmployeeController {
     final FineCalculator fineCalculator;
     final ListInStringConverter listConverter;
 
-    // class constructors :
+    // class constructors:
     public EmployeeController(UserService userService, CarService carService, CurrentUserFinder currentUserFinder, NotificationService notifService, FineCalculator fineCalculator, ListInStringConverter listConverter) {
         this.userService = userService;
         this.carService = carService;
@@ -48,7 +48,7 @@ public class EmployeeController {
         this.listConverter = listConverter;
     }
 
-    // class methods :
+    // class methods:
     @GetMapping
     public String employeeHomePage(Model model) {
         long currentUserId = currentUserFinder.getCurrentUserId();

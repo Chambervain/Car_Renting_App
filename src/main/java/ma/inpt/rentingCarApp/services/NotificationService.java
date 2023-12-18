@@ -5,6 +5,7 @@ import ma.inpt.rentingCarApp.DAO.NotificationRepository;
 import ma.inpt.rentingCarApp.entities.Notification;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class NotificationService {
 
@@ -33,4 +34,5 @@ public class NotificationService {
     public void deleteById(Long id) {
         notificationRepo.deleteById(id);
     }
+
 }
