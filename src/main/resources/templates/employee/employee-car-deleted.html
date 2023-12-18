@@ -8,12 +8,14 @@
 <body>
 
 <div class="container">
-    <h3>Car is deleted successfully!</h3>
+    <h3>Successfully deleted !</h3><br><br>
 
     <div class="row">
-        <form method="GET" th:action="@{/employee/cars/showcars}">
-            <input type="submit" value="Go back to catalog">
-        </form>
+
+        <button style="background-color: #add8e6; color: black;">
+            <a href="/employee/cars/showcars?showAllCars=Show+all+cars">  Go back</a>
+        </button>
+
     </div>
 </div>
 </body>

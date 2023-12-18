@@ -10,19 +10,17 @@
 <ul th:fragment="userNavBar">
     <li><a href="/user">Home</a></li>
     <li><a href="/user/browsecars?showAllCars=Show+all+cars">Browse Cars</a></li>
-    <li><a href="/user/yourreservations">Your Reservations</a></li>
-    <li><a class="active" href="/logout">Logout</a></li>
+    <li><a href="/user/yourreservations">Reservation List</a></li>
+    <li style="float:right"><a class="active" href="/logout">Sign out</a></li>
 </ul>
 
 
 <ul th:fragment="employeeNavBar">
     <li><a href="/employee">Home</a></li>
-    <li><a href="/employee/reservations">Process Reservations</a></li>
-    <li><a href="/employee/users/showusers">User Info</a></li>
-    <li><a href="/employee/cars/showcars">Car Catalog</a></li>
-<!--    <li><a href="/employee/orders">Place Order</a></li>-->
-<!--    <li><a href="/employee/returnedcars">Return Cars</a></li>-->
-    <li><a class="active" href="/logout">Logout</a></li>
+    <li><a href="/employee/reservations">Process Reservation</a></li>
+    <li><a href="/employee/users/showusers?showAllUsers=Show+all+users">User List</a></li>
+    <li><a href="/employee/cars/showcars?showAllCars=Show+all+cars">Car Catalog</a></li>
+    <li style="float:right"><a class="active" href="/logout">Sign out</a></li>
 </ul>
 
 </body>

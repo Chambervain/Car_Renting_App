@@ -8,9 +8,9 @@
 <body>
 
 <div class="container">
-    <h3>Set car reservation to ready for pick-up</h3>
-    <p>Are you sure?</p>
-    <p>You are about to set this car's status to ready for pick-up:</p>
+    <h3>Set car status for pick-up</h3><br>
+
+    <p>Reservation Information:</p><br>
 
     <div class="row">
         <div class="col-50">
@@ -19,7 +19,7 @@
         <div class="col-75">
             <text th:text="${car.carName}"></text>
         </div>
-    </div>
+    </div><br>
 
     <div class="row">
         <div class="col-50">
@@ -28,7 +28,7 @@
         <div class="col-75">
             <text th:text="${car.owner}"></text>
         </div>
-    </div>
+    </div><br>
 
     <div class="row">
         <div class="col-50">
@@ -37,26 +37,22 @@
         <div class="col-75">
             <text th:text="${car.releaseYear}"></text>
         </div>
-    </div>
+    </div><br>
 
     <div class="row">
         <div class="col-50">
-            Edition
+            Price/Day
         </div>
         <div class="col-75">
             <text th:text="${car.edition}"></text>
-        </div>
-    </div>
+        </div><br>
+    </div><br><br>
 
-    <p><b>
-        <text th:text="${user.firstName + ' ' + user.lastName}">
-    </b> will receive a notification.
-    </p>
 
     <div class="row">
         <div class="col-50">
             <form th:action="@{/employee/updatecarreservation}" th:method="PUT">
-                <input type="submit" value="Yes">
+                <input type="submit" value="Agree">
                 <input th:name="_method" th:value="PUT" type="hidden">
                 <input th:name="carId" th:value="${car.carId}" type="hidden">
                 <input th:name="userId" th:value="${user.userId}" type="hidden">
@@ -64,7 +60,7 @@
         </div>
         <div class="col-50">
             <form method="GET" th:action="@{/employee/reservations}">
-                <input style="background-color: red" type="submit" value="No">
+                <input style="background-color: red" type="submit" value="Disagree">
             </form>
         </div>
     </div>

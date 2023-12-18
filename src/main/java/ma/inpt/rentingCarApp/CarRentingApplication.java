@@ -44,59 +44,64 @@ public class CarRentingApplication {
     CommandLineRunner runner() {
         return args -> {
 
-            User user1 = new User("test", pwdEncoder.encode("test"), "testing@gmail.com", "Shohei", "Ohtani", "countryside of Japan", "0762436500", "Tokyo");
-            user1.setRole("ROLE_ADMIN");
+            User user1 = new User("root", pwdEncoder.encode("1234"), "root1234@gmail.com", "Kris", "Wu", "Qincheng Prison", "0645681329", "Toronto");
+            user1.setRole("ROLE_EMPLOYEE");
 
-            User user2 = new User("root", pwdEncoder.encode("1234"), "root1234@gmail.com", "Max", "Verstappen", "chichawa chichawa", "0645681329", "Netherlands");
-            user2.setRole("ROLE_EMPLOYEE");
+            User user2 = new User("123123", pwdEncoder.encode("123123"), "365@gmail.com", "Lazy", "Air", "4,Tarik2, Laklak Neighbourhood", "0682670018", "Beijing");
+            user2.setRole("ROLE_USER");
 
-            User user3 = new User("123123", pwdEncoder.encode("123123"), "365@gmail.com", "Lazy", "Air", "4,Tarik2, Laklak Neighbourhood", "0682670018", "Beijing");
-            user3.setRole("ROLE_USER");
+            User user3 = new User("admin", pwdEncoder.encode("admin"), "bz2306@nyu.edu", "Bowen", "Zhang", "69 Gelston Ave, BK", "9178253557", "New York");
 
-            User user4 = new User("admin", pwdEncoder.encode("admin"), "bz2306@nyu.edu", "Bowen", "Zhang", "69 Gelston Ave, BK", "9178253557", "New York");
+            User user4 = new User("johndoe123", pwdEncoder.encode("Password123!"), "john.doe@email.com", "John", "Doe", "123 Main Street", "1234567891", "New York");
+
+            User user5 = new User("emily_smith", pwdEncoder.encode("SecurePass456@"), "emily.smith@email.com", "Emily", "Smith", "456 Elm Avenue", "1234567892", "Los Angeles");
+
+            User user6 = new User("mike_williams", pwdEncoder.encode("PassWord789#"), "mike.w@email.com", "Mike", "Williams", "789 Oak Street", "1234567893", "Chicago");
+
+            User user7 = new User("sarah_87", pwdEncoder.encode("BrownPwd12$"), "sarah87@mail.com", "Sarah", "Johnson", "12 Pine Avenue", "1234567894", "Houston");
+
+            User user8 = new User("david_davis", pwdEncoder.encode("DavisPwd34*"), "dave.davis@email.com", "David", "Davis", "34 Cedar Road", "1234567895", "Miami");
+
+            User user9 = new User("olivia_c", pwdEncoder.encode("PassOlivia$"), "oliviac@email.com", "Olivia", "Campbell", "56 Bay Street", "1234567896", "San Francisco");
+
+            User user10 = new User("ethan_lee", pwdEncoder.encode("EthanPwd!23"), "ethanl@email.com", "Ethan", "Lee", "789 Lake Avenue", "1234567897", "Seattle");
+
+            User user11 = new User("mia_rodriguez", pwdEncoder.encode("M1aR0d_#67"), "mia.r@email.com", "Mia", "Rodriguez", "645 Hillside Road", "1234567898", "Dallas");
 
 
             userService.save(user1);
             userService.save(user2);
             userService.save(user3);
             userService.save(user4);
+            userService.save(user5);
+            userService.save(user6);
+            userService.save(user7);
+            userService.save(user8);
+            userService.save(user9);
+            userService.save(user10);
+            userService.save(user11);
 
 
-            Car car1 = new Car("Corolla : Toyota", "Mohammed Hachami", 2001, 1);
-            Car car2 = new Car("308 : Peugeot", "Mohammed Batrone", 2000, 1);
-            Car car3 = new Car("Tucson : Hyundai", "Taha Bouasria", 2012, 3);
-            Car car4 = new Car("Focus : Ford", "Taha Elghabi", 2007, 2);
-            Car car5 = new Car("Astra : Opel", "Houda Oukessou", 2013, 3);
-            Car car6 = new Car("CLA : Mercedes", "Mohammed Idrissi", 1002, 2);
-            Car car7 = new Car("Logan : Dacia", "Oussama Rachidi", 2002, 2);
-            Car car8 = new Car("Clio4 : Renault", "Yassir Kassimi", 2011, 1);
-            Car car9 = new Car("308 : Peugeot", "Intissar Labiad", 2009, 1);
-            Car car10 = new Car("Golf : VolksWagen", "Imad Slimani", 2015, 3);
-            Car car11 = new Car("Fabia : SKoda", "Aaziz Taleb", 2005, 1);
-            Car car12 = new Car("Uno : Fiat", "Achak Nizar", 2008, 1);
-            Car car13 = new Car("Punto : Fiat", "Bahou Basma", 2000, 2);
-            Car car14 = new Car("Kuga : Ford", "Ibrahim Jouhari", 2001, 3);
-            Car car15 = new Car("ClasseE : Mercedes", "Salim Zaidi", 2005, 3);
-            Car car16 = new Car("Tiguan : VolksWagen", "Hicham Taibi", 2016, 2);
-            Car car17 = new Car("Evoque : RangeRover", "Alae Abjabja", 2014, 1);
-            Car car18 = new Car("Fiesta : Ford", "Ismail Ouafi", 2012, 2);
-            Car car19 = new Car("Micra : Nissan", "Khalil Amraoui", 2009, 2);
-            Car car20 = new Car("Qashqai : Nissan", "Omar Mouad", 2016, 3);
-            Car car21 = new Car("Megane : Renault", "Manal Riad", 2006, 3);
-            Car car22 = new Car("Leon : Seat", "Amine Meftah", 2015, 1);
-            Car car23 = new Car("Picanto : Kia", "Abdellah Chadid", 2001, 2);
-            Car car24 = new Car("Micra : Nissan", "Meryem Fadil", 2017, 3);
-            Car car25 = new Car("500 : Fiat", "Marouane Naji", 2016, 1);
-            Car car26 = new Car("X5 : BMW", "Omar Bahri", 2009, 1);
-            Car car27 = new Car("Q8 : Audi", "Youssef Assil", 2011, 1);
-            Car car28 = new Car("A4 : Audi", "Ihssane   Grini", 2010, 2);
-            Car car29 = new Car("508 : Peugeot", "Selma Yamani", 2017, 3);
-            Car car30 = new Car("Ibiza : Seat", "Zineb Oufkir", 2013, 1);
-            Car car31 = new Car("Corsa : Opel", "Aymane Sabir", 2014, 1);
-            Car car32 = new Car("C3 : Citroen", "Ahmed Ghazouani", 2009, 2);
-            Car car33 = new Car("C4 : Citroen", "Kawtar Maaroufi", 2020, 3);
-            Car car34 = new Car("XC60 : VOLVO", "Anouar Halimi", 2019, 3);
-            Car car35 = new Car("Fiesta : Ford", "Mohammed Bacha", 2016, 3);
+            Car car1 = new Car("Tesla_CyberTruck", "Kris Wu", 2023, 200);
+            Car car2 = new Car("Tesla_ModelY", "Mia Rodriguez", 2019, 140);
+            Car car3 = new Car("Tesla_ModelS", "Ethan Lee", 2017, 150);
+            Car car4 = new Car("Audi_Q8", "Taha Elghabi", 2018, 180);
+            Car car5 = new Car("Audi_A6", "Houda Oukessou", 2016, 160);
+            Car car6 = new Car("BMW_X5", "Olivia Campbell", 2017, 170);
+            Car car7 = new Car("BMW_730", "Oussama Rachidi", 2013, 170);
+            Car car8 = new Car("BMW_i8", "Michael Williams", 2018, 180);
+            Car car9 = new Car("BenZ_AMG_GTR", "Leah Coleman", 2014, 190);
+            Car car10 = new Car("BenZ_ECoupe", "Imad Slimani", 2018, 160);
+            Car car11 = new Car("Toyota_Camry", "Aaziz Taleb", 2012, 100);
+            Car car12 = new Car("Toyota_Highlander", "Hailey Edwards", 2013, 120);
+            Car car13 = new Car("Honda_CRV", "Bahou Basma", 2011, 110);
+            Car car14 = new Car("Honda_TypeR", "Piper Simmons", 2015, 150);
+            Car car15 = new Car("Porsche_911", "Caleb Perry", 2020, 200);
+            Car car16 = new Car("Porsche_Panamera", "Hicham Taibi", 2022, 200);
+            Car car17 = new Car("Mazda_CX90", "Olivia Campbell", 2023, 160);
+            Car car18 = new Car("Volvo_XC60", "Ethan Lee", 2019, 140);
+            Car car19 = new Car("Ford_Focus", "Mia Rodriguez", 2010, 90);
+            Car car20 = new Car("Lexus_LC500", "Kris Wu", 2021, 190);
 
 
             carService.save(car1);
@@ -119,27 +124,11 @@ public class CarRentingApplication {
             carService.save(car18);
             carService.save(car19);
             carService.save(car20);
-            carService.save(car21);
-            carService.save(car22);
-            carService.save(car23);
-            carService.save(car24);
-            carService.save(car25);
-            carService.save(car26);
-            carService.save(car27);
-            carService.save(car28);
-            carService.save(car29);
-            carService.save(car30);
-            carService.save(car31);
-            carService.save(car32);
-            carService.save(car33);
-            carService.save(car34);
-            carService.save(car35);
+
 
             car10.setTheUser(user3);
             car10.setReturnDate(LocalDate.of(2023, 5, 20));
 
-            car34.setTheUser(user2);
-            car34.setReturnDate(LocalDate.of(2023, 12, 28));
 
             car1.setTheUser(user1);
             car1.setReturnDate(LocalDate.of(2023, 6, 9));

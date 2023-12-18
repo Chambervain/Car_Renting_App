@@ -48,15 +48,6 @@
 
             <div class="row">
                 <div class="col-25">
-                    <label for="email">Email</label>
-                </div>
-                <div class="col-75">
-                    <input id="email" name="email" required="required" th:field="${newAccount.email}" type="email">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-25">
                     <label for="firstName">First Name</label>
                 </div>
                 <div class="col-75">
@@ -77,19 +68,19 @@
 
             <div class="row">
                 <div class="col-25">
-                    <label for="address">Address</label>
+                    <label for="address">City</label>
                 </div>
                 <div class="col-75">
-                    <input id="address" name="address" required="required" th:field="${newAccount.address}" type="text">
+                    <input id="city" name="city" required="required" th:field="${newAccount.city}" type="text">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-25">
-                    <label for="address">City</label>
+                    <label for="address">Address</label>
                 </div>
                 <div class="col-75">
-                    <input id="city" name="city" required="required" th:field="${newAccount.city}" type="text">
+                    <input id="address" name="address" required="required" th:field="${newAccount.address}" type="text">
                 </div>
             </div>
 
@@ -101,8 +92,18 @@
                     <input id="phoneNumber" name="phoneNumber" required="required" th:field="${newAccount.phoneNumber}"
                            type="text">
                 </div>
-            </div><br><br>
+            </div>
 
+            <div class="row">
+                <div class="col-25">
+                    <label for="email">Email</label>
+                </div>
+                <div class="col-75">
+                    <input id="email" name="email" required="required" th:field="${newAccount.email}" type="email">
+                </div>
+            </div>
+
+            <br><br>
             <div style="position: relative; right: 11%">
                 <input class="registerButton" type="submit" value="Register as a new user">
             </div>

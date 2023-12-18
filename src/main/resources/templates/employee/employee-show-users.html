@@ -15,7 +15,7 @@
 <div class="container">
 
 
-    <h3>User Info</h3>
+    <h3>User List</h3>
 
     <div class="row">
 
@@ -38,9 +38,6 @@
             </div>
         </form>
 
-        <form method="GET" th:action="@{/employee/users/showusers}">
-            <input name="showAllUsers" style="margin-left: 20px" type="submit" value="Show all users">
-        </form>
     </div>
     <br/>
     <table id="tablestyle" th:if="${usersWithFines.size > 0}">
@@ -50,7 +47,7 @@
             <th>City</th>
             <th>Phone Number</th>
 <!--            <th>Fine</th>-->
-            <th style="width: 150px">Action</th>
+            <th style="width: 150px">More Information</th>
         </tr>
 
         <tr th:each="user : ${usersWithFines}">
@@ -58,11 +55,9 @@
             <td th:text="${user.key.lastName}"></td>
             <td th:text="${user.key.city}"></td>
             <td th:text="${user.key.phoneNumber}"></td>
-<!--            <td style="color:red" th:if="${user.value > 0}" th:text="${'$ ' + user.value}"></td>-->
-<!--            <td th:if="${user.value == 0}" th:text="${'$ ' + user.value}"></td>-->
             <td>
                 <form method="GET" th:action="@{/employee/users/showuserinfo}">
-                    <input class="table" type="submit" value="Show user info">
+                    <input class="table" style="background-color: #21618C" type="submit" value="More user detail">
                     <input name="userId" th:value="${user.key.userId}" type="hidden">
                     <input name="fine" th:value="${user.value}" type="hidden">
                 </form>

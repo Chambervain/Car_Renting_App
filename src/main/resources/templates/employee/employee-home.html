@@ -13,11 +13,12 @@
 </div>
 
 <div class="container">
-    <h2 th:text="${'Welcome' + ' ' + currentUser.getFirstName + ' ' + currentUser.getLastName + ' &#128075'}"></h2>
+    <h2 th:text="${'Welcome back ~' + ' &nbsp&nbsp&nbsp' + currentUser.getFirstName + ' ' + currentUser.getLastName}"></h2>
 </div>
 
+
 <div class="container">
-    <h3>Notifications &#128276</h3>
+    <h3>Notifications &nbsp&nbsp&#128276;</h3>
 
     <div th:if="${currentUser.notifications.size() == 0}">
         <p th:text="${'There are no notifications for you' + ' ' + currentUser.getFirstName + '. '}"></p>
@@ -35,5 +36,7 @@
         </div>
     </div>
 </div>
+
+
 </body>
 </html>

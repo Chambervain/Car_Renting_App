@@ -13,12 +13,13 @@
 </div>
 
 <div class="container">
-    <h2 th:text="${'Welcome' + ' ' + currentUser.firstName + ' ' + currentUser.lastName + ' &#128075'}"></h2>
+    <h2 th:text="${'Welcome back ~' + ' &nbsp&nbsp&nbsp' + currentUser.firstName + ' ' + currentUser.lastName}"></h2>
 </div>
+
 
 <div class="container">
 
-    <h3>Notifications &#128276;</h3>
+    <h3>Notifications &nbsp&nbsp&#128276;</h3>
 
     <div th:if="${carsWithFines.size() == 0 && currentUser.notifications.size() == 0}">
         <p>There are no notifications.</p>
@@ -56,11 +57,10 @@
             </tr>
         </table>
 
-
     </div>
 
-
 </div>
+
 
 </body>
 </html>

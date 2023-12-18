@@ -4,6 +4,21 @@
     <meta charset="ISO-8859-1">
     <title>Car Detail Info</title>
     <link rel="stylesheet" th:href="@{/CSS/account-layout.css}" type="text/css">
+
+    <style>
+        .container {
+            position: static;
+        }
+
+        .resized-image {
+            position: absolute;
+            top: 20%;
+            right: 18%;
+            width: 500px;
+            height: 350px;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -13,103 +28,108 @@
 </div>
 
 <div class="container">
-    
     <h2>Car Information Details</h2>
 
-        <div class="row">
-            <div class="col-50">
-                <Label>Car ID: </Label>
-            </div>
-            <div class="col-75">
-                <h4 th:text="${info.carId}"></h4>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-50">
-                <Label>Car name: </Label>
-            </div>
-            <div class="col-75">
-                <h4 th:text="${info.carName}"></h4>
-            </div>
-        </div>
+    <div class="image-container">
+        <img alt="Image cannot be loaded ..." th:src="@{/Images/{carName}.png(carName=${info.carName})}" class="resized-image">
+    </div>
 
-        <div class="row">
-            <div class="col-50">
-                <label>Owner:</label>
-            </div>
-            <div class="col-75">
-                <h4 th:text="${info.owner}"></h4>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-50">
-                <label>Release year:</label>
-            </div>
-            <div class="col-75">
-                <h4 th:text="${info.releaseYear}"></h4>
-            </div>
+    <div class="row">
+        <div class="col-50">
+            <Label>Car ID: </Label>
         </div>
+        <div class="col-75">
+            <h4 th:text="${info.carId}"></h4>
+        </div>
+    </div>
 
-        <div class="row">
-            <div class="col-50">
-                <label>Price/day:</label>
-            </div>
-            <div class="col-75">
-                <h4 id="pricePerDay" th:text="${info.edition}"></h4>
-            </div>
+    <div class="row">
+        <div class="col-50">
+            <Label>Car name: </Label>
         </div>
+        <div class="col-75">
+            <h4 th:text="${info.carName}"></h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-50">
+            <label>Owner:</label>
+        </div>
+        <div class="col-75">
+            <h4 th:text="${info.owner}"></h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-50">
+            <label>Release year:</label>
+        </div>
+        <div class="col-75">
+            <h4 th:text="${info.releaseYear}"></h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-50">
+            <label>Price/Day:</label>
+        </div>
+        <div class="col-75">
+            <h4 id="pricePerDay" th:text="${info.edition}"></h4>
+        </div>
+    </div>
 
 
     <form method="POST" th:action="@{/user/check/{checkId}(checkId=${info.carId})}">
 
 
-    <div class="row">
-        <div class="col-50">
-            <label>Return date:</label>
+        <div class="row">
+            <div class="col-50">
+                <label>Return date:</label>
+            </div>
+            <div class="col-75">
+                <input name="checkDate" required="required" id="reserveDate" type="date">
+            </div>
         </div>
-        <div class="col-75">
-            <input name="checkDate" required="required" id="reserveDate" type="date">
+
+
+        <div class="row">
+            <div class="col-75">
+                <button onclick="calculateTotal()">Total Price</button>
+            </div>
         </div>
-    </div>
 
-        
-    <div class="row">
-        <div class="col-75">
-            <button onclick="calculateTotal()">Total Price</button>
+        <div class="row">
+            <div class="col-75">
+                <p id="totalCost"></p>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-75">
-            <p id="totalCost"></p>
+        <title>TotalPrice</title>
+
+
+        <script>
+            function calculateTotal() {
+
+                var pricePerDay = parseFloat(document.getElementById('pricePerDay').innerText);
+                var todayDate = new Date();
+                var reserveDate = new Date(document.getElementById('reserveDate').value);
+                var timeDiff = Math.abs(reserveDate.getTime() - todayDate.getTime());
+                var rentalDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                var totalCost = pricePerDay * rentalDays;
+
+                document.getElementById('totalCost').innerHTML = 'Totaly Price$: ' + totalCost.toFixed(2);
+            }
+        </script>
+
+
+        <div>
+            <h3>
+                Check out for your reservation bill !!
+            </h3>
         </div>
-    </div>
-
-    <title>TotalPrice</title>
-
-
-    <script>
-        function calculateTotal() {
-
-            var pricePerDay = parseFloat(document.getElementById('pricePerDay').innerText);
-            var todayDate = new Date();
-            var reserveDate = new Date(document.getElementById('reserveDate').value);
-            var timeDiff = Math.abs(reserveDate.getTime() - todayDate.getTime());
-            var rentalDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            var totalCost = pricePerDay * rentalDays;
-
-            document.getElementById('totalCost').innerHTML = 'Totaly Price$' + totalCost.toFixed(2);
-        }
-    </script>
-
-
-    <div>
-        <h3>
-            Check out for your reservation bill !!
-        </h3>
-    </div>
 
         <div class="row">
             <div class="col-50">

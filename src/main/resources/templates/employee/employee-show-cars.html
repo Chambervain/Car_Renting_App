@@ -35,11 +35,6 @@
             </div>
         </form>
 
-        <form method="GET" th:action="@{/employee/cars/showcars}">
-            <div>
-                <input name="showAllCars" style="margin-left: 20px" type="submit" value="Show all cars">
-            </div>
-        </form>
 
         <form method="GET" th:action="@{/employee/cars/newcar}">
             <div>
@@ -52,11 +47,11 @@
         <tr>
             <th>Car name</th>
             <th>Release Year</th>
-            <th>Edition</th>
+            <th>Price/Day</th>
 <!--            <th>Return Date</th>-->
             <th>Reserved From</th>
             <th>Reserved Until</th>
-            <th>Action</th>
+            <th>Car Modification</th>
         </tr>
         <tr th:each="car : ${cars}">
             <td th:text="${car.carName}"></td>
@@ -67,11 +62,12 @@
             <td th:text="${car.endReservationDate}"></td>
             <td style="width: 240px;">
                 <form method="GET" th:action="@{/employee/cars/changecarinfo}">
-                    <input class="table" style="width: 110px; margin-right: 6px" type="submit" value="Change info"/>
+                    <input class="table" style="width: 110px; margin-right: 6px; background-color: #21618C" type="submit" value="Modify"/>
                     <input name="changeCarId" th:value="${car.carId}" type="hidden">
                 </form>
+
                 <form method="GET" th:action="@{/employee/cars/areyousuretodeletecar}">
-                    <input class="table" style="background-color: red; width: 110px;" type="submit" value="Delete car">
+                    <input class="table" style="background-color: red; width: 110px;" type="submit" value="Remove">
                     <input name="deleteCarId" th:value="${car.CarId}" type="hidden">
                 </form>
             </td>

@@ -24,10 +24,10 @@
             <tr>
                 <th>Car name</th>
                 <th>Release Year</th>
-                <th>Edition</th>
+                <th>Price/Day</th>
                 <th>Reserved by</th>
                 <th>Reserved Until</th>
-                <th style="width: 260px">Ready for Pick Up &#128513;</th>
+                <th style="width: 260px"> Process Car Reservations</th>
             </tr>
             <tr th:each="car : ${unprocessedReservations}">
                 <td th:text="${car.carName}"></td>
@@ -38,7 +38,7 @@
                 <td>
                     <form th:action="@{/employee/setreadyforpickup}" th:method="PUT">
                         <input class="table" style="width: 250px" type="submit"
-                               value="Set car status to ready for pick-up">
+                               value="Agree to Pick-up">
                         <input th:name="_method" th:value="PUT" type="hidden">
                         <input name="carId" th:value="${car.carId}" type="hidden">
                         <input name="userId" th:value="${car.reservedByUser.userId}" type="hidden">

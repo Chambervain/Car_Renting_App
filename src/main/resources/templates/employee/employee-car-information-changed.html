@@ -8,12 +8,19 @@
 <body>
 
 <div class="container">
-    <h3>Car information changed</h3>
-    <form th:action="@{/employee/cars/showcars}" th:method="GET">
+    <h3>Car information changed</h3><br><br>
+
         <div class="row">
-            <input type="submit" value="Go back to catalog">
+
+            <button style="background-color: #add8e6; color: black;">
+                <a href="/employee/cars/showcars?showAllCars=Show+all+cars">  Go back</a>
+            </button>
+
         </div>
-    </form>
+
+
+
+
 </div>
 
 </body>

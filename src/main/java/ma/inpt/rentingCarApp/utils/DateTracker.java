@@ -6,7 +6,6 @@ import ma.inpt.rentingCarApp.services.CarService;
 import ma.inpt.rentingCarApp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Collection;
@@ -22,7 +21,7 @@ public class DateTracker {
     @Autowired
     CurrentUserFinder currentUserFinder;
     @Autowired
-    UserService usService;
+    UserService userService;
     @Autowired
     DateTracker dateTracker;
 
@@ -84,9 +83,9 @@ public class DateTracker {
         LocalDate endReservationDate = startReservationDate.plusDays(7);
         car.setStartReservationDate(startReservationDate);
         car.setEndReservationDate(endReservationDate);
-        car.setReservedByUser(usService.findById(currentUserFinder.getCurrentUserId()));
+        car.setReservedByUser(userService.findById(currentUserFinder.getCurrentUserId()));
         carService.save(car);
-        usService.save(currentUserFinder.getCurrentUser());
+        userService.save(currentUserFinder.getCurrentUser());
     }
 
     public int getWeeksToExtendReturnDate(Car car) {

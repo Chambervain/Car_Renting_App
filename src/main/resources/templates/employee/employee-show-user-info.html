@@ -13,7 +13,7 @@
 </div>
 
 <div class="container">
-    <h3>User Detail</h3>
+    <h3>User Details</h3><br>
 
     <div class="row">
         <div class="col-50">
@@ -22,7 +22,7 @@
         <div class="col-75">
             <text th:text="${user.userName}">
         </div>
-    </div>
+    </div><br>
 
     <div class="row">
         <div class="col-50">
@@ -31,7 +31,7 @@
         <div class="col-75">
             <text th:text="${user.firstName}"/>
         </div>
-    </div>
+    </div><br>
 
     <div class="row">
         <div class="col-50">
@@ -40,7 +40,34 @@
         <div class="col-75">
             <text th:text="${user.lastName}">
         </div>
-    </div>
+    </div><br>
+
+    <div class="row">
+        <div class="col-50">
+            City:
+        </div>
+        <div class="col-75">
+            <text th:text="${user.city}">
+        </div>
+    </div><br>
+
+    <div class="row">
+        <div class="col-50">
+            Address:
+        </div>
+        <div class="col-75">
+            <text th:text="${user.address}">
+        </div>
+    </div><br>
+
+    <div class="row">
+        <div class="col-50">
+            Phone number:
+        </div>
+        <div class="col-75">
+            <text th:text="${user.phoneNumber}">
+        </div>
+    </div><br>
 
     <div class="row">
         <div class="col-50">
@@ -51,32 +78,7 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-50">
-            Address:
-        </div>
-        <div class="col-75">
-            <text th:text="${user.address}">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-50">
-            City:
-        </div>
-        <div class="col-75">
-            <text th:text="${user.city}">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-50">
-            Phone number:
-        </div>
-        <div class="col-75">
-            <text th:text="${user.phoneNumber}">
-        </div>
-    </div><br>
+    <br><br>
 
 <!--    <div class="row">-->
 <!--        <div class="col-50">-->
@@ -127,7 +129,7 @@
             <th>Car name</th>
             <th>Owner</th>
             <th>Release Year</th>
-            <th>Edition</th>
+            <th>Price/Day</th>
             <th>Reserved from</th>
             <th>Reserved until</th>
         </tr>
